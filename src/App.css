@@ -1,45 +1,94 @@
+/* Add this to your existing CSS file */
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
 
 .app {
-  transition: background-color 0.5s ease-in-out;
-  text-align: center;
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-/* Day and Night Styles */
-.day {
+.theme-selector {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #333;
+}
+
+.theme-selector button {
+  margin: 5px;
+  padding: 8px 15px;
+  color: #fff;
+  background-color: #555;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.weather-animation {
+  flex: 1;
+  position: relative;
+}
+
+.animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: moveIcon 10s linear infinite;
+}
+
+.icon {
+  font-size: 4rem;
+  color: #fff;
+}
+
+@keyframes moveIcon {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1, h2, p {
+  color: #333;
+}
+
+/* Night time background color */
+.app.night {
+  background-color: #333;
+}
+
+/* Day time background color based on weather condition */
+.app.day.clear {
   background-color: #87CEEB;
-  color: #000;
 }
 
-.night {
-  background-color: #333; 
-  color: #fff;
+.app.day.clouds {
+  background-color: #B0C4DE;
 }
 
-/* Weather Condition Styles */
-.clear {
-  background-color: #87CEEB;
+.app.day.rainy {
+  background-color: #4682B4;
 }
 
-.clouds {
-  background-color: #ddd; 
+.app.day.thunderstorms {
+  background-color: #000080;
 }
 
-.rain {
-  background-color: #666;
-  color: #fff;
-}
-
-.snow {
-  background-color: #fff; 
-}
-
-.thunderstorm {
-  background-color: #1E90FF; 
-  color: #fff; 
-}
-
-.extreme {
-  background-color: #FF4500; 
-  color: #fff;
+.app.day.mist {
+  background-color: #C0C0C0;
 }
